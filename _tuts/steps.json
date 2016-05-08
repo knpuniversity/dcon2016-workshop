@@ -94,7 +94,12 @@
             "id": "service-show-off-autowire",
             "name": "Service: Show off autowire",
             "description": null
+        },
+        {
+            "id": "controller-log-via-controllerbase",
+            "name": "Controller: log via ControllerBase",
+            "description": null
         }
     ],
-    "sha": "db0aa36b0bdb67a07165367c8f7ea7bc1f466481"
+    "sha": "f093334422a40632388704511708c4f87ed8e14e"
 }

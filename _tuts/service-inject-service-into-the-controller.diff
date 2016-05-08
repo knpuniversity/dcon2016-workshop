@@ -1,5 +1,5 @@
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index a20eb24..61a9c9c 100644
+index a20eb24..c042056 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
 @@ -9,22 +9,21 @@
@@ -19,7 +19,7 @@ index a20eb24..61a9c9c 100644
      public static function create(ContainerInterface $container)
      {
 -        return new self($container->get('config.factory'));
-+        return new self($container->get('beignet_bakery'));
++        return new self($container->get('beignet.beignet_bakery'));
      }
  
      public function eatBeignets($number)

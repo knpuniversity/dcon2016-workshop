@@ -1,10 +1,10 @@
 diff --git a/modules/custom/beignet/beignet.services.yml b/modules/custom/beignet/beignet.services.yml
 new file mode 100644
-index 0000000..1913555
+index 0000000..4d324f1
 --- /dev/null
 +++ b/modules/custom/beignet/beignet.services.yml
 @@ -0,0 +1,4 @@
 +services:
-+    beignet_bakery:
++    beignet.beignet_bakery:
 +        class: Drupal\beignet\Service\BeignetBakery
 +        arguments: ['@config.factory']
