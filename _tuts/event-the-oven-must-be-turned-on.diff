@@ -1,0 +1,34 @@
+diff --git a/modules/custom/beignet/src/Service/BeignetBakery.php b/modules/custom/beignet/src/Service/BeignetBakery.php
+index 5ea9549..0126c8c 100644
+--- a/modules/custom/beignet/src/Service/BeignetBakery.php
++++ b/modules/custom/beignet/src/Service/BeignetBakery.php
+@@ -8,6 +8,8 @@ class BeignetBakery
+ {
+     private $configFactory;
+ 
++    private $ovenStarted = false;
++
+     public function __construct(ConfigFactoryInterface $configFactory)
+     {
+         $this->configFactory = $configFactory;
+@@ -15,6 +17,10 @@ public function __construct(ConfigFactoryInterface $configFactory)
+ 
+     public function bakeBeignets($number)
+     {
++        if (!$this->ovenStarted) {
++            throw new \Exception('You cannot bake beignets unless the oven is on!');
++        }
++
+         if ($number === null) {
+             $config = $this->configFactory->get('beignet.settings');
+             $number = $config->get('default_number');
+@@ -31,4 +37,9 @@ public function bakeBeignets($number)
+ 
+         return $beignets;
+     }
++
++    public function turnOnOven()
++    {
++        $this->ovenStarted = true;
++    }
+ }

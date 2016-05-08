@@ -1,0 +1,10 @@
+diff --git a/modules/custom/beignet/beignet.services.yml b/modules/custom/beignet/beignet.services.yml
+index 358fcd5..5321885 100644
+--- a/modules/custom/beignet/beignet.services.yml
++++ b/modules/custom/beignet/beignet.services.yml
+@@ -6,3 +6,5 @@ services:
+   beignet.oven_initializer:
+     class: Drupal\beignet\EventSubscriber\OvenInitializer
+     arguments: []
++    tags:
++      - { name: event_subscriber }

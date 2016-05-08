@@ -1,0 +1,33 @@
+diff --git a/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php b/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
+index d8328f4..4e05c23 100644
+--- a/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
++++ b/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
+@@ -18,8 +18,14 @@ public function onKernelRequest()
+     $this->bakery->turnOnOven();
+   }
+ 
++  public function onKernelResponse()
++  {
++    $this->bakery->turnOffOven();
++  }
++
+   static function getSubscribedEvents() {
+     $events['kernel.request'] = ['onKernelRequest'];
++    $events['kernel.response'] = ['onKernelResponse'];
+ 
+     return $events;
+   }
+diff --git a/modules/custom/beignet/src/Service/BeignetBakery.php b/modules/custom/beignet/src/Service/BeignetBakery.php
+index 0126c8c..774595d 100644
+--- a/modules/custom/beignet/src/Service/BeignetBakery.php
++++ b/modules/custom/beignet/src/Service/BeignetBakery.php
+@@ -42,4 +42,9 @@ public function turnOnOven()
+     {
+         $this->ovenStarted = true;
+     }
++
++    public function turnOffOven()
++    {
++        $this->ovenStarted = false;
++    }
+ }

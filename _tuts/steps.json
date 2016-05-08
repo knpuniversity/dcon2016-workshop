@@ -99,7 +99,42 @@
             "id": "controller-log-via-controllerbase",
             "name": "Controller: log via ControllerBase",
             "description": null
+        },
+        {
+            "id": "event-you-must-turn-the-oven-on",
+            "name": "Event: You must turn the oven on",
+            "description": null
+        },
+        {
+            "id": "event-simple-subscriber",
+            "name": "Event: Simple subscriber",
+            "description": null
+        },
+        {
+            "id": "event-tag-it",
+            "name": "Event: Tag it!",
+            "description": null
+        },
+        {
+            "id": "event-the-oven-must-be-turned-on",
+            "name": "Event: The oven must be turned on",
+            "description": null
+        },
+        {
+            "id": "event-turn-the-oven-on",
+            "name": "Event: turn the oven on",
+            "description": null
+        },
+        {
+            "id": "event-turn-the-oven-off-too",
+            "name": "Event: turn the oven off too",
+            "description": null
+        },
+        {
+            "id": "event-log-oven-duration",
+            "name": "Event: Log oven duration",
+            "description": null
         }
     ],
-    "sha": "f093334422a40632388704511708c4f87ed8e14e"
+    "sha": "051224fbb1c543c3ef79267c0fa7460b504e4c7a"
 }

@@ -1,11 +1,10 @@
 diff --git a/modules/custom/beignet/beignet.services.yml b/modules/custom/beignet/beignet.services.yml
-index 4d324f1..f834ad4 100644
+index 6737bc1..eca421f 100644
 --- a/modules/custom/beignet/beignet.services.yml
 +++ b/modules/custom/beignet/beignet.services.yml
 @@ -1,4 +1,4 @@
  services:
-     beignet.beignet_bakery:
-         class: Drupal\beignet\Service\BeignetBakery
--        arguments: ['@config.factory']
-+        autowire: true
-\ No newline at end of file
+   beignet.beignet_bakery:
+     class: Drupal\beignet\Service\BeignetBakery
+-    arguments: ['@config.factory']
++    autowire: true

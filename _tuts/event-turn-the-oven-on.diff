@@ -1,0 +1,38 @@
+diff --git a/modules/custom/beignet/beignet.services.yml b/modules/custom/beignet/beignet.services.yml
+index 5321885..a8b0d9f 100644
+--- a/modules/custom/beignet/beignet.services.yml
++++ b/modules/custom/beignet/beignet.services.yml
+@@ -5,6 +5,6 @@ services:
+ 
+   beignet.oven_initializer:
+     class: Drupal\beignet\EventSubscriber\OvenInitializer
+-    arguments: []
++    arguments: ['@beignet.beignet_bakery']
+     tags:
+       - { name: event_subscriber }
+diff --git a/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php b/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
+index fc4ff34..d8328f4 100644
+--- a/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
++++ b/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
+@@ -2,12 +2,20 @@
+ 
+ namespace Drupal\beignet\EventSubscriber;
+ 
++use Drupal\beignet\Service\BeignetBakery;
+ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+ 
+ class OvenInitializer implements EventSubscriberInterface {
++  private $bakery;
++
++  public function __construct(BeignetBakery $bakery)
++  {
++    $this->bakery = $bakery;
++  }
++
+   public function onKernelRequest()
+   {
+-    drupal_set_message('onKernelRequest is being called!');
++    $this->bakery->turnOnOven();
+   }
+ 
+   static function getSubscribedEvents() {

@@ -1,0 +1,36 @@
+diff --git a/modules/custom/beignet/beignet.services.yml b/modules/custom/beignet/beignet.services.yml
+index eca421f..358fcd5 100644
+--- a/modules/custom/beignet/beignet.services.yml
++++ b/modules/custom/beignet/beignet.services.yml
+@@ -2,3 +2,7 @@ services:
+   beignet.beignet_bakery:
+     class: Drupal\beignet\Service\BeignetBakery
+     autowire: true
++
++  beignet.oven_initializer:
++    class: Drupal\beignet\EventSubscriber\OvenInitializer
++    arguments: []
+diff --git a/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php b/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
+new file mode 100644
+index 0000000..fc4ff34
+--- /dev/null
++++ b/modules/custom/beignet/src/EventSubscriber/OvenInitializer.php
+@@ -0,0 +1,18 @@
++<?php
++
++namespace Drupal\beignet\EventSubscriber;
++
++use Symfony\Component\EventDispatcher\EventSubscriberInterface;
++
++class OvenInitializer implements EventSubscriberInterface {
++  public function onKernelRequest()
++  {
++    drupal_set_message('onKernelRequest is being called!');
++  }
++
++  static function getSubscribedEvents() {
++    $events['kernel.request'] = ['onKernelRequest'];
++
++    return $events;
++  }
++}
