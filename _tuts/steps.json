@@ -1,0 +1,80 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "module-generate-info-module-file",
+            "name": "Module: Generate info & module file",
+            "description": null
+        },
+        {
+            "id": "route-create-basic-route",
+            "name": "Route: Create basic route",
+            "description": null
+        },
+        {
+            "id": "route-add-controller",
+            "name": "Route: Add controller",
+            "description": null
+        },
+        {
+            "id": "route-add-default-controller",
+            "name": "Route: Add default._controller",
+            "description": null
+        },
+        {
+            "id": "route-add-number-wildcard",
+            "name": "Route: Add {number} wildcard",
+            "description": null
+        },
+        {
+            "id": "route-use-default-value",
+            "name": "Route: Use default value",
+            "description": null
+        },
+        {
+            "id": "controller-render-array",
+            "name": "Controller: Render array",
+            "description": null
+        },
+        {
+            "id": "service-generate-settings-form",
+            "name": "Service: Generate settings form",
+            "description": null
+        },
+        {
+            "id": "service-filling-in-form",
+            "name": "Service: Filling in form",
+            "description": null
+        },
+        {
+            "id": "service-use-config-shortcut",
+            "name": "Service: Use config() shortcut",
+            "description": null
+        },
+        {
+            "id": "service-use-this-configfactory-in-controller",
+            "name": "Service: Use $this->configFactory in controller",
+            "description": null
+        },
+        {
+            "id": "service-create-and-use-beignetbakery",
+            "name": "Service: Create and use BeignetBakery",
+            "description": null
+        },
+        {
+            "id": "service-use-config-no-di",
+            "name": "Service: Use config, no DI",
+            "description": null
+        },
+        {
+            "id": "service-use-di",
+            "name": "Service: use DI",
+            "description": null
+        }
+    ],
+    "sha": "0970810cee36cf6e95c734d3a59398b6ca043be3"
+}

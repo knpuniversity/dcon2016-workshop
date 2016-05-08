@@ -1,0 +1,11 @@
+diff --git a/modules/custom/beignet/beignet.routing.yml b/modules/custom/beignet/beignet.routing.yml
+index f1e0e21..ed1bab7 100644
+--- a/modules/custom/beignet/beignet.routing.yml
++++ b/modules/custom/beignet/beignet.routing.yml
+@@ -2,5 +2,6 @@ beignet_eat:
+     path: /beignets/eat/{number}
+     defaults:
+         _controller: Drupal\beignet\Controller\BeignetController::eatBeignets
++        number: 10
+     requirements:
+         _permission: 'access content'

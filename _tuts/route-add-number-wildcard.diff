@@ -1,0 +1,26 @@
+diff --git a/modules/custom/beignet/beignet.routing.yml b/modules/custom/beignet/beignet.routing.yml
+index afd3c4e..f1e0e21 100644
+--- a/modules/custom/beignet/beignet.routing.yml
++++ b/modules/custom/beignet/beignet.routing.yml
+@@ -1,5 +1,5 @@
+ beignet_eat:
+-    path: /beignets/eat
++    path: /beignets/eat/{number}
+     defaults:
+         _controller: Drupal\beignet\Controller\BeignetController::eatBeignets
+     requirements:
+diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
+index f115acb..4d51992 100644
+--- a/modules/custom/beignet/src/Controller/BeignetController.php
++++ b/modules/custom/beignet/src/Controller/BeignetController.php
+@@ -6,8 +6,8 @@
+ 
+ class BeignetController
+ {
+-    public function eatBeignets()
++    public function eatBeignets($number)
+     {
+-        return new Response('NOM');
++        return new Response(sprintf('NOM %s beignets', $number));
+     }
+ }

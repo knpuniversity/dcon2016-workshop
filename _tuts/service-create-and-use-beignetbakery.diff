@@ -1,0 +1,51 @@
+diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
+index a1cf0df..1c0dfce 100644
+--- a/modules/custom/beignet/src/Controller/BeignetController.php
++++ b/modules/custom/beignet/src/Controller/BeignetController.php
+@@ -2,6 +2,7 @@
+ 
+ namespace Drupal\beignet\Controller;
+ 
++use Drupal\beignet\Service\BeignetBakery;
+ use Drupal\Core\Controller\ControllerBase;
+ 
+ class BeignetController extends ControllerBase
+@@ -13,8 +14,11 @@ public function eatBeignets($number)
+             $number = $config->get('default_number');
+         }
+ 
++        $bakery = new BeignetBakery();
++        $beignets = $bakery->bakeBeignets($number);
++
+         return [
+-            '#title' => sprintf('NOM %s beignets', $number),
++            '#title' => 'NOM the following beignets: '.implode(', ', $beignets),
+         ];
+     }
+ }
+diff --git a/modules/custom/beignet/src/Service/BeignetBakery.php b/modules/custom/beignet/src/Service/BeignetBakery.php
+new file mode 100644
+index 0000000..8580495
+--- /dev/null
++++ b/modules/custom/beignet/src/Service/BeignetBakery.php
+@@ -0,0 +1,20 @@
++<?php
++
++namespace Drupal\beignet\Service;
++
++class BeignetBakery
++{
++    public function bakeBeignets($number)
++    {
++        $flavors = ['chocolate', 'plain', 'strawberry-filled'];
++        $beignets = [];
++        for ($i = 0; $i <= $number; $i++) {
++            $flavorKey = array_rand($flavors);
++            $flavor = $flavors[$flavorKey];
++
++            $beignets[] = $flavor;
++        }
++
++        return $beignets;
++    }
++}

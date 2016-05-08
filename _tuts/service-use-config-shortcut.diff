@@ -1,0 +1,36 @@
+diff --git a/modules/custom/beignet/beignet.routing.yml b/modules/custom/beignet/beignet.routing.yml
+index e1da5c6..6b775f4 100644
+--- a/modules/custom/beignet/beignet.routing.yml
++++ b/modules/custom/beignet/beignet.routing.yml
+@@ -2,7 +2,7 @@ beignet_eat:
+     path: /beignets/eat/{number}
+     defaults:
+         _controller: Drupal\beignet\Controller\BeignetController::eatBeignets
+-        number: 10
++        number: null
+     requirements:
+         _permission: 'access content'
+ 
+diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
+index 0c52765..1aff27a 100644
+--- a/modules/custom/beignet/src/Controller/BeignetController.php
++++ b/modules/custom/beignet/src/Controller/BeignetController.php
+@@ -2,10 +2,17 @@
+ 
+ namespace Drupal\beignet\Controller;
+ 
+-class BeignetController
++use Drupal\Core\Controller\ControllerBase;
++
++class BeignetController extends ControllerBase
+ {
+     public function eatBeignets($number)
+     {
++        if ($number === null) {
++            $config = $this->config('beignet.settings');
++            $number = $config->get('default_number');
++        }
++
+         return [
+             '#title' => sprintf('NOM %s beignets', $number),
+         ];

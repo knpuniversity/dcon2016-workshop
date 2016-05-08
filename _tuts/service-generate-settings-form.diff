@@ -1,0 +1,100 @@
+diff --git a/modules/custom/beignet/beignet.links.menu.yml b/modules/custom/beignet/beignet.links.menu.yml
+new file mode 100644
+index 0000000..b0f1c31
+--- /dev/null
++++ b/modules/custom/beignet/beignet.links.menu.yml
+@@ -0,0 +1,6 @@
++beignet.settings_form:
++  title: 'SettingsForm'
++  route_name: beignet.settings_form
++  description: 'A description for the menu entry'
++  parent: system.admin_config_system
++  weight: 99
+diff --git a/modules/custom/beignet/beignet.routing.yml b/modules/custom/beignet/beignet.routing.yml
+index ed1bab7..e1da5c6 100644
+--- a/modules/custom/beignet/beignet.routing.yml
++++ b/modules/custom/beignet/beignet.routing.yml
+@@ -5,3 +5,13 @@ beignet_eat:
+         number: 10
+     requirements:
+         _permission: 'access content'
++
++beignet.settings_form:
++  path: '/admin/config/beignet/settings'
++  defaults:
++    _form: '\Drupal\beignet\Form\SettingsForm'
++    _title: 'SettingsForm'
++  requirements:
++    _permission: 'access administration pages'
++  options:
++    _admin_route: TRUE
+diff --git a/modules/custom/beignet/config/install/beignet.settings.yml b/modules/custom/beignet/config/install/beignet.settings.yml
+new file mode 100644
+index 0000000..001cc43
+--- /dev/null
++++ b/modules/custom/beignet/config/install/beignet.settings.yml
+@@ -0,0 +1 @@
++beignet:
+diff --git a/modules/custom/beignet/src/Form/SettingsForm.php b/modules/custom/beignet/src/Form/SettingsForm.php
+new file mode 100644
+index 0000000..ff0439b
+--- /dev/null
++++ b/modules/custom/beignet/src/Form/SettingsForm.php
+@@ -0,0 +1,57 @@
++<?php
++
++namespace Drupal\beignet\Form;
++
++use Drupal\Core\Form\ConfigFormBase;
++use Drupal\Core\Form\FormStateInterface;
++
++/**
++ * Class SettingsForm.
++ *
++ * @package Drupal\beignet\Form
++ */
++class SettingsForm extends ConfigFormBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function getEditableConfigNames() {
++    return [
++      'beignet.settings',
++    ];
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getFormId() {
++    return 'settings_form';
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function buildForm(array $form, FormStateInterface $form_state) {
++    $config = $this->config('beignet.settings');
++
++    return parent::buildForm($form, $form_state);
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function validateForm(array &$form, FormStateInterface $form_state) {
++    parent::validateForm($form, $form_state);
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function submitForm(array &$form, FormStateInterface $form_state) {
++    parent::submitForm($form, $form_state);
++
++    $this->config('beignet.settings')
++      ->save();
++  }
++
++}

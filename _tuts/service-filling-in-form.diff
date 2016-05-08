@@ -1,0 +1,25 @@
+diff --git a/modules/custom/beignet/src/Form/SettingsForm.php b/modules/custom/beignet/src/Form/SettingsForm.php
+index ff0439b..f1d903c 100644
+--- a/modules/custom/beignet/src/Form/SettingsForm.php
++++ b/modules/custom/beignet/src/Form/SettingsForm.php
+@@ -34,6 +34,12 @@ public function getFormId() {
+   public function buildForm(array $form, FormStateInterface $form_state) {
+     $config = $this->config('beignet.settings');
+ 
++    $form['beignet_default_number'] = array(
++      '#type' => 'textfield',
++      '#title' => $this->t('Default beignets'),
++      '#default_value' => $config->get('default_number'),
++    );
++
+     return parent::buildForm($form, $form_state);
+   }
+ 
+@@ -51,6 +57,7 @@ public function submitForm(array &$form, FormStateInterface $form_state) {
+     parent::submitForm($form, $form_state);
+ 
+     $this->config('beignet.settings')
++        ->set('default_number', $form_state->getValue('beignet_default_number'))
+       ->save();
+   }
+ 

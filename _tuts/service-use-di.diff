@@ -1,0 +1,31 @@
+diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
+index c148fc6..150b337 100644
+--- a/modules/custom/beignet/src/Controller/BeignetController.php
++++ b/modules/custom/beignet/src/Controller/BeignetController.php
+@@ -9,7 +9,7 @@ class BeignetController extends ControllerBase
+ {
+     public function eatBeignets($number)
+     {
+-        $bakery = new BeignetBakery();
++        $bakery = new BeignetBakery($this->configFactory);
+         $beignets = $bakery->bakeBeignets($number);
+ 
+         return [
+diff --git a/modules/custom/beignet/src/Service/BeignetBakery.php b/modules/custom/beignet/src/Service/BeignetBakery.php
+index c03e71a..91f78aa 100644
+--- a/modules/custom/beignet/src/Service/BeignetBakery.php
++++ b/modules/custom/beignet/src/Service/BeignetBakery.php
+@@ -4,6 +4,13 @@
+ 
+ class BeignetBakery
+ {
++    private $configFactory;
++
++    public function __construct($configFactory)
++    {
++        $this->configFactory = $configFactory;
++    }
++
+     public function bakeBeignets($number)
+     {
+         if ($number === null) {

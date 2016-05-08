@@ -1,0 +1,32 @@
+diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
+index 1c0dfce..c148fc6 100644
+--- a/modules/custom/beignet/src/Controller/BeignetController.php
++++ b/modules/custom/beignet/src/Controller/BeignetController.php
+@@ -9,11 +9,6 @@ class BeignetController extends ControllerBase
+ {
+     public function eatBeignets($number)
+     {
+-        if ($number === null) {
+-            $config = $this->configFactory->get('beignet.settings');
+-            $number = $config->get('default_number');
+-        }
+-
+         $bakery = new BeignetBakery();
+         $beignets = $bakery->bakeBeignets($number);
+ 
+diff --git a/modules/custom/beignet/src/Service/BeignetBakery.php b/modules/custom/beignet/src/Service/BeignetBakery.php
+index 8580495..c03e71a 100644
+--- a/modules/custom/beignet/src/Service/BeignetBakery.php
++++ b/modules/custom/beignet/src/Service/BeignetBakery.php
+@@ -6,6 +6,11 @@ class BeignetBakery
+ {
+     public function bakeBeignets($number)
+     {
++        if ($number === null) {
++            $config = $this->configFactory->get('beignet.settings');
++            $number = $config->get('default_number');
++        }
++
+         $flavors = ['chocolate', 'plain', 'strawberry-filled'];
+         $beignets = [];
+         for ($i = 0; $i <= $number; $i++) {

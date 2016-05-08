@@ -1,0 +1,19 @@
+diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
+new file mode 100644
+index 0000000..f115acb
+--- /dev/null
++++ b/modules/custom/beignet/src/Controller/BeignetController.php
+@@ -0,0 +1,13 @@
++<?php
++
++namespace Drupal\beignet\Controller;
++
++use Symfony\Component\HttpFoundation\Response;
++
++class BeignetController
++{
++    public function eatBeignets()
++    {
++        return new Response('NOM');
++    }
++}

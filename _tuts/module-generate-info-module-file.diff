@@ -1,0 +1,41 @@
+diff --git a/modules/custom/beignet/beignet.info.yml b/modules/custom/beignet/beignet.info.yml
+new file mode 100644
+index 0000000..a13584a
+--- /dev/null
++++ b/modules/custom/beignet/beignet.info.yml
+@@ -0,0 +1,5 @@
++name: Beignet
++type: module
++description: I <3 Beignets
++core: 8.x
++package: Custom
+diff --git a/modules/custom/beignet/beignet.module b/modules/custom/beignet/beignet.module
+new file mode 100644
+index 0000000..3df5a2a
+--- /dev/null
++++ b/modules/custom/beignet/beignet.module
+@@ -0,0 +1,24 @@
++<?php
++
++/**
++ * @file
++ * Contains beignet.module..
++ */
++
++use Drupal\Core\Routing\RouteMatchInterface;
++
++/**
++ * Implements hook_help().
++ */
++function beignet_help($route_name, RouteMatchInterface $route_match) {
++  switch ($route_name) {
++    // Main module help for the beignet module.
++    case 'help.page.beignet':
++      $output = '';
++      $output .= '<h3>' . t('About') . '</h3>';
++      $output .= '<p>' . t('I &lt;3 Beignets') . '</p>';
++      return $output;
++
++    default:
++  }
++}
