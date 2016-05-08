@@ -61,11 +61,6 @@
             "description": null
         },
         {
-            "id": "service-use-this-configfactory-in-controller",
-            "name": "Service: Use $this->configFactory in controller",
-            "description": null
-        },
-        {
             "id": "service-create-and-use-beignetbakery",
             "name": "Service: Create and use BeignetBakery",
             "description": null
@@ -98,11 +93,6 @@
         {
             "id": "controller-log-via-controllerbase",
             "name": "Controller: log via ControllerBase",
-            "description": null
-        },
-        {
-            "id": "event-you-must-turn-the-oven-on",
-            "name": "Event: You must turn the oven on",
             "description": null
         },
         {
