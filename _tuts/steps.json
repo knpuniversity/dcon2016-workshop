@@ -51,8 +51,13 @@
             "description": null
         },
         {
-            "id": "service-use-config-shortcut",
-            "name": "Service: Use config() shortcut",
+            "id": "service-use-controller-create-for-configfactory",
+            "name": "Service: use controller create for configFactory",
+            "description": null
+        },
+        {
+            "id": "service-type-hint",
+            "name": "Service: Type-hint",
             "description": null
         },
         {
@@ -74,7 +79,22 @@
             "id": "service-use-di",
             "name": "Service: use DI",
             "description": null
+        },
+        {
+            "id": "service-register-as-a-service",
+            "name": "Service: Register as a service",
+            "description": null
+        },
+        {
+            "id": "service-inject-service-into-the-controller",
+            "name": "Service: Inject service into the controller",
+            "description": null
+        },
+        {
+            "id": "service-show-off-autowire",
+            "name": "Service: Show off autowire",
+            "description": null
         }
     ],
-    "sha": "0970810cee36cf6e95c734d3a59398b6ca043be3"
+    "sha": "db0aa36b0bdb67a07165367c8f7ea7bc1f466481"
 }

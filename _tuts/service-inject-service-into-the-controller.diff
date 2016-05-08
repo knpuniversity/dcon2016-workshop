@@ -1,0 +1,32 @@
+diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
+index a20eb24..61a9c9c 100644
+--- a/modules/custom/beignet/src/Controller/BeignetController.php
++++ b/modules/custom/beignet/src/Controller/BeignetController.php
+@@ -9,22 +9,21 @@
+ 
+ class BeignetController implements ContainerInjectionInterface
+ {
+-    private $configFactory;
++    private $beignetBakery;
+ 
+-    public function __construct(ConfigFactoryInterface $configFactory)
++    public function __construct(BeignetBakery $beignetBakery)
+     {
+-        $this->configFactory = $configFactory;
++        $this->beignetBakery = $beignetBakery;
+     }
+ 
+     public static function create(ContainerInterface $container)
+     {
+-        return new self($container->get('config.factory'));
++        return new self($container->get('beignet_bakery'));
+     }
+ 
+     public function eatBeignets($number)
+     {
+-        $bakery = new BeignetBakery($this->configFactory);
+-        $beignets = $bakery->bakeBeignets($number);
++        $beignets = $this->beignetBakery->bakeBeignets($number);
+ 
+         return [
+             '#title' => 'NOM the following beignets: '.implode(', ', $beignets),

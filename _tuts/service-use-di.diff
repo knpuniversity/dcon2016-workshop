@@ -1,9 +1,9 @@
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index c148fc6..150b337 100644
+index bdd25f2..a20eb24 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
-@@ -9,7 +9,7 @@ class BeignetController extends ControllerBase
- {
+@@ -23,7 +23,7 @@ public static function create(ContainerInterface $container)
+ 
      public function eatBeignets($number)
      {
 -        $bakery = new BeignetBakery();
@@ -12,16 +12,20 @@ index c148fc6..150b337 100644
  
          return [
 diff --git a/modules/custom/beignet/src/Service/BeignetBakery.php b/modules/custom/beignet/src/Service/BeignetBakery.php
-index c03e71a..91f78aa 100644
+index c03e71a..5ea9549 100644
 --- a/modules/custom/beignet/src/Service/BeignetBakery.php
 +++ b/modules/custom/beignet/src/Service/BeignetBakery.php
-@@ -4,6 +4,13 @@
+@@ -2,8 +2,17 @@
  
+ namespace Drupal\beignet\Service;
+ 
++use Drupal\Core\Config\ConfigFactoryInterface;
++
  class BeignetBakery
  {
 +    private $configFactory;
 +
-+    public function __construct($configFactory)
++    public function __construct(ConfigFactoryInterface $configFactory)
 +    {
 +        $this->configFactory = $configFactory;
 +    }

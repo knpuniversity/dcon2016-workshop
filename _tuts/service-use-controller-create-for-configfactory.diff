@@ -12,22 +12,35 @@ index e1da5c6..6b775f4 100644
          _permission: 'access content'
  
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index 0c52765..1aff27a 100644
+index 0c52765..6763478 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
-@@ -2,10 +2,17 @@
+@@ -2,10 +2,30 @@
  
  namespace Drupal\beignet\Controller;
  
 -class BeignetController
-+use Drupal\Core\Controller\ControllerBase;
++use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
++use Symfony\Component\DependencyInjection\ContainerInterface;
 +
-+class BeignetController extends ControllerBase
++class BeignetController implements ContainerInjectionInterface
  {
++    private $configFactory;
++
++    public function __construct($configFactory)
++    {
++        $this->configFactory = $configFactory;
++    }
++
++    public static function create(ContainerInterface $container)
++    {
++        return new self($container->get('config.factory'));
++    }
++
      public function eatBeignets($number)
      {
 +        if ($number === null) {
-+            $config = $this->config('beignet.settings');
++            $config = $this->configFactory->get('beignet.settings');
 +            $number = $config->get('default_number');
 +        }
 +

@@ -1,5 +1,5 @@
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index a1cf0df..1c0dfce 100644
+index b5dfac5..9480d35 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
 @@ -2,6 +2,7 @@
@@ -7,10 +7,10 @@ index a1cf0df..1c0dfce 100644
  namespace Drupal\beignet\Controller;
  
 +use Drupal\beignet\Service\BeignetBakery;
- use Drupal\Core\Controller\ControllerBase;
- 
- class BeignetController extends ControllerBase
-@@ -13,8 +14,11 @@ public function eatBeignets($number)
+ use Drupal\Core\Config\ConfigFactoryInterface;
+ use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+@@ -27,8 +28,11 @@ public function eatBeignets($number)
              $number = $config->get('default_number');
          }
  
