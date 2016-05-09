@@ -41,6 +41,11 @@
             "description": null
         },
         {
+            "id": "webprofiler-install",
+            "name": "Webprofiler: Install",
+            "description": null
+        },
+        {
             "id": "service-generate-settings-form",
             "name": "Service: Generate settings form",
             "description": null
@@ -126,5 +131,5 @@
             "description": null
         }
     ],
-    "sha": "051224fbb1c543c3ef79267c0fa7460b504e4c7a"
+    "sha": "a20dc8cc942a3e91875f754ce73ee74c6655c4fc"
 }
