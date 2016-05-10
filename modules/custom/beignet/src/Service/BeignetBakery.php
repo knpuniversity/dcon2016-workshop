@@ -8,6 +8,8 @@ class BeignetBakery
 {
     private $configFactory;
 
+    private $ovenStarted = false;
+
     public function __construct(ConfigFactoryInterface $configFactory)
     {
         $this->configFactory = $configFactory;
@@ -15,6 +17,10 @@ class BeignetBakery
 
     public function bakeBeignets($number)
     {
+        if (!$this->ovenStarted) {
+            throw new \Exception('You cannot bake beignets unless the oven is on!');
+        }
+
         if ($number === null) {
             $config = $this->configFactory->get('beignet.settings');
             $number = $config->get('default_number');
@@ -30,5 +36,10 @@ class BeignetBakery
         }
 
         return $beignets;
+    }
+
+    public function turnOnOven()
+    {
+        $this->ovenStarted = true;
     }
 }
