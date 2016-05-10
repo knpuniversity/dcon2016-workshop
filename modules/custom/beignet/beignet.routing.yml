@@ -1,5 +1,5 @@
 beignet_eat:
-    path: /beignets/eat
+    path: /beignets/eat/{number}
     defaults:
         _controller: Drupal\beignet\Controller\BeignetController::eatBeignets
     requirements:

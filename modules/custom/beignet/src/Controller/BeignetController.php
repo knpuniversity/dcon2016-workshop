@@ -6,8 +6,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BeignetController
 {
-    public function eatBeignets()
+    public function eatBeignets($number)
     {
-        return new Response('NOM');
+        return new Response(sprintf('NOM %s beignets', $number));
     }
 }
