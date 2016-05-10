@@ -4,10 +4,10 @@ namespace Drupal\beignet\Controller;
 
 use Drupal\beignet\Service\BeignetBakery;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
+use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class BeignetController implements ContainerInjectionInterface
+class BeignetController extends ControllerBase
 {
     private $beignetBakery;
 
@@ -24,6 +24,9 @@ class BeignetController implements ContainerInjectionInterface
     public function eatBeignets($number)
     {
         $beignets = $this->beignetBakery->bakeBeignets($number);
+
+        $this->getLogger('database')
+            ->info(sprintf('Eating %s beignets', count($beignets)));
 
         return [
             '#type' => 'markup',
