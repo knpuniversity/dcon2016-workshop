@@ -1,0 +1,4 @@
+services:
+  beignet.beignet_bakery:
+    class: Drupal\beignet\Service\BeignetBakery
+    arguments: ['@config.factory']
