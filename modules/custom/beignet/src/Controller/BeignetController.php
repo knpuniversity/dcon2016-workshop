@@ -2,6 +2,7 @@
 
 namespace Drupal\beignet\Controller;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -9,7 +10,7 @@ class BeignetController implements ContainerInjectionInterface
 {
     private $configFactory;
 
-    public function __construct($configFactory)
+    public function __construct(ConfigFactoryInterface $configFactory)
     {
         $this->configFactory = $configFactory;
     }
