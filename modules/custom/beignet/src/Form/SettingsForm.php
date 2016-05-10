@@ -34,6 +34,12 @@ class SettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('beignet.settings');
 
+    $form['beignet_default_number'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Default beignets'),
+      '#default_value' => $config->get('default_number'),
+    );
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -51,6 +57,7 @@ class SettingsForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
 
     $this->config('beignet.settings')
+        ->set('default_number', $form_state->getValue('beignet_default_number'))
       ->save();
   }
 
