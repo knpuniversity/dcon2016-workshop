@@ -1,0 +1,5 @@
+name: Beignet
+type: module
+description: I <3 Beignets
+core: 8.x
+package: Custom
