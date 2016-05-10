@@ -2,8 +2,17 @@
 
 namespace Drupal\beignet\Service;
 
+use Drupal\Core\Config\ConfigFactoryInterface;
+
 class BeignetBakery
 {
+    private $configFactory;
+
+    public function __construct(ConfigFactoryInterface $configFactory)
+    {
+        $this->configFactory = $configFactory;
+    }
+
     public function bakeBeignets($number)
     {
         if ($number === null) {

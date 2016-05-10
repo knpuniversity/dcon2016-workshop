@@ -23,7 +23,7 @@ class BeignetController implements ContainerInjectionInterface
 
     public function eatBeignets($number)
     {
-        $bakery = new BeignetBakery();
+        $bakery = new BeignetBakery($this->configFactory);
         $beignets = $bakery->bakeBeignets($number);
 
         return [
