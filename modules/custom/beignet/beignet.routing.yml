@@ -2,7 +2,7 @@ beignet_eat:
     path: /beignets/eat/{number}
     defaults:
         _controller: Drupal\beignet\Controller\BeignetController::eatBeignets
-        number: 10
+        number: null
     requirements:
         _permission: 'access content'
 
