@@ -23,11 +23,6 @@ class BeignetController implements ContainerInjectionInterface
 
     public function eatBeignets($number)
     {
-        if ($number === null) {
-            $config = $this->configFactory->get('beignet.settings');
-            $number = $config->get('default_number');
-        }
-
         $bakery = new BeignetBakery();
         $beignets = $bakery->bakeBeignets($number);
 

@@ -6,6 +6,11 @@ class BeignetBakery
 {
     public function bakeBeignets($number)
     {
+        if ($number === null) {
+            $config = $this->configFactory->get('beignet.settings');
+            $number = $config->get('default_number');
+        }
+
         $flavors = ['chocolate', 'plain', 'strawberry-filled'];
         $beignets = [];
         for ($i = 0; $i <= $number; $i++) {
