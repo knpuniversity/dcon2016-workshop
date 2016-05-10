@@ -5,6 +5,6 @@ services:
 
   beignet.oven_initializer:
     class: Drupal\beignet\EventSubscriber\OvenInitializer
-    arguments: []
+    arguments: ['@beignet.beignet_bakery']
     tags:
       - { name: event_subscriber }

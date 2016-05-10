@@ -2,12 +2,20 @@
 
 namespace Drupal\beignet\EventSubscriber;
 
+use Drupal\beignet\Service\BeignetBakery;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class OvenInitializer implements EventSubscriberInterface {
+  private $bakery;
+
+  public function __construct(BeignetBakery $bakery)
+  {
+    $this->bakery = $bakery;
+  }
+
   public function onKernelRequest()
   {
-    drupal_set_message('onKernelRequest is being called!');
+    $this->bakery->turnOnOven();
   }
 
   static function getSubscribedEvents() {
