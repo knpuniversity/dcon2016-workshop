@@ -6,3 +6,5 @@ services:
   beignet.oven_initializer:
     class: Drupal\beignet\EventSubscriber\OvenInitializer
     arguments: []
+    tags:
+      - { name: event_subscriber }
