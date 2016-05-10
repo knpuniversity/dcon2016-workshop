@@ -1,4 +1,6 @@
 beignet_eat:
     path: /beignets/eat
+    defaults:
+        _controller: Drupal\beignet\Controller\BeignetController::eatBeignets
     requirements:
         _permission: 'access content'
