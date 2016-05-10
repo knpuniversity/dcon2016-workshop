@@ -1,0 +1,4 @@
+beignet_eat:
+    path: /beignets/eat
+    requirements:
+        _permission: 'access content'
