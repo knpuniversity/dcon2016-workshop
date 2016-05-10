@@ -9,22 +9,21 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class BeignetController implements ContainerInjectionInterface
 {
-    private $configFactory;
+    private $beignetBakery;
 
-    public function __construct(ConfigFactoryInterface $configFactory)
+    public function __construct(BeignetBakery $beignetBakery)
     {
-        $this->configFactory = $configFactory;
+        $this->beignetBakery = $beignetBakery;
     }
 
     public static function create(ContainerInterface $container)
     {
-        return new self($container->get('config.factory'));
+        return new self($container->get('beignet.beignet_bakery'));
     }
 
     public function eatBeignets($number)
     {
-        $bakery = new BeignetBakery($this->configFactory);
-        $beignets = $bakery->bakeBeignets($number);
+        $beignets = $this->beignetBakery->bakeBeignets($number);
 
         return [
             '#type' => 'markup',
