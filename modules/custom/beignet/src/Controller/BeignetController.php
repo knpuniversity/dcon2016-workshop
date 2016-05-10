@@ -2,6 +2,7 @@
 
 namespace Drupal\beignet\Controller;
 
+use Drupal\beignet\Service\BeignetBakery;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -27,9 +28,12 @@ class BeignetController implements ContainerInjectionInterface
             $number = $config->get('default_number');
         }
 
+        $bakery = new BeignetBakery();
+        $beignets = $bakery->bakeBeignets($number);
+
         return [
             '#type' => 'markup',
-            '#markup' => sprintf('NOM %s beignets', $number),
+            '#markup' => 'NOM the following beignets: '.implode(', ', $beignets),
         ];
     }
 }
