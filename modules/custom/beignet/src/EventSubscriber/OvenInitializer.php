@@ -18,8 +18,14 @@ class OvenInitializer implements EventSubscriberInterface {
     $this->bakery->turnOnOven();
   }
 
+  public function onKernelResponse()
+  {
+    $this->bakery->turnOffOven();
+  }
+
   static function getSubscribedEvents() {
     $events['kernel.request'] = ['onKernelRequest'];
+    $events['kernel.response'] = ['onKernelResponse'];
 
     return $events;
   }

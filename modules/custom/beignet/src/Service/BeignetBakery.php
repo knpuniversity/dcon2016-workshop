@@ -42,4 +42,9 @@ class BeignetBakery
     {
         $this->ovenStarted = true;
     }
+
+    public function turnOffOven()
+    {
+        $this->ovenStarted = false;
+    }
 }
