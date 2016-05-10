@@ -1,5 +1,5 @@
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index b5dfac5..9480d35 100644
+index d6054f2..1b89a32 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
 @@ -2,6 +2,7 @@
@@ -10,7 +10,7 @@ index b5dfac5..9480d35 100644
  use Drupal\Core\Config\ConfigFactoryInterface;
  use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
  use Symfony\Component\DependencyInjection\ContainerInterface;
-@@ -27,8 +28,11 @@ public function eatBeignets($number)
+@@ -27,9 +28,12 @@ public function eatBeignets($number)
              $number = $config->get('default_number');
          }
  
@@ -18,8 +18,9 @@ index b5dfac5..9480d35 100644
 +        $beignets = $bakery->bakeBeignets($number);
 +
          return [
--            '#title' => sprintf('NOM %s beignets', $number),
-+            '#title' => 'NOM the following beignets: '.implode(', ', $beignets),
+             '#type' => 'markup',
+-            '#markup' => sprintf('NOM %s beignets', $number),
++            '#markup' => 'NOM the following beignets: '.implode(', ', $beignets),
          ];
      }
  }

@@ -1,5 +1,5 @@
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index c042056..84b5642 100644
+index 87f16b8..d4183f9 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
 @@ -4,10 +4,10 @@
@@ -23,5 +23,5 @@ index c042056..84b5642 100644
 +            ->info(sprintf('Eating %s beignets', count($beignets)));
 +
          return [
-             '#title' => 'NOM the following beignets: '.implode(', ', $beignets),
-         ];
+             '#type' => 'markup',
+             '#markup' => 'NOM the following beignets: '.implode(', ', $beignets),

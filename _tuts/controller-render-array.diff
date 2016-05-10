@@ -1,8 +1,8 @@
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index 4d51992..0c52765 100644
+index 4d51992..442c3cf 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
-@@ -2,12 +2,12 @@
+@@ -2,12 +2,13 @@
  
  namespace Drupal\beignet\Controller;
  
@@ -14,7 +14,8 @@ index 4d51992..0c52765 100644
      {
 -        return new Response(sprintf('NOM %s beignets', $number));
 +        return [
-+            '#title' => sprintf('NOM %s beignets', $number),
++            '#type' => 'markup',
++            '#markup' => sprintf('NOM %s beignets', $number),
 +        ];
      }
  }

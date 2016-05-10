@@ -1,5 +1,5 @@
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index a20eb24..c042056 100644
+index 8586964..87f16b8 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
 @@ -9,22 +9,21 @@
@@ -29,4 +29,4 @@ index a20eb24..c042056 100644
 +        $beignets = $this->beignetBakery->bakeBeignets($number);
  
          return [
-             '#title' => 'NOM the following beignets: '.implode(', ', $beignets),
+             '#type' => 'markup',

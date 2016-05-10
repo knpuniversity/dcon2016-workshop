@@ -12,7 +12,7 @@ index e1da5c6..6b775f4 100644
          _permission: 'access content'
  
 diff --git a/modules/custom/beignet/src/Controller/BeignetController.php b/modules/custom/beignet/src/Controller/BeignetController.php
-index 0c52765..6763478 100644
+index 442c3cf..acfaae0 100644
 --- a/modules/custom/beignet/src/Controller/BeignetController.php
 +++ b/modules/custom/beignet/src/Controller/BeignetController.php
 @@ -2,10 +2,30 @@
@@ -45,5 +45,5 @@ index 0c52765..6763478 100644
 +        }
 +
          return [
-             '#title' => sprintf('NOM %s beignets', $number),
-         ];
+             '#type' => 'markup',
+             '#markup' => sprintf('NOM %s beignets', $number),
